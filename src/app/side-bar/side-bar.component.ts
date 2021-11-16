@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AjaxService} from "../utils/ajax"
 
 @Component({
   selector: 'app-side-bar',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
-
-  constructor() { }
+  content;
+  ajaxService;
+  constructor() {
+    this.ajaxService = new AjaxService();
+  }
 
   ngOnInit() {
+    this.ajaxService.getData("http://localhost:8080/assignments");
   }
 
 }
