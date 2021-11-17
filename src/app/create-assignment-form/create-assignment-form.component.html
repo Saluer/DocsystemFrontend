@@ -1,25 +1,72 @@
 <form action="">
   <div class="form-group">
-    <label for="">Предмет</label><input class="form-control" type="text" name="" id="" />
+    <label for="">Предмет</label
+    ><input
+      class="form-control"
+      type="text"
+      name="subject"
+      [(ngModel)]="assignment.subject"
+    />
   </div>
   <div class="form-group">
-    <label for="">Автор</label><input class="form-control" type="text" name="" id="" />
+    <label for="">Автор</label
+    ><input
+      class="form-control"
+      type="text"
+      name="author"
+      [(ngModel)]="assignment.author"
+      id=""
+    />
   </div>
   <div class="form-group">
-    <label for="">Исполнители</label><input class="form-control" type="text" name="" id="" />
+    <label for="">Исполнители</label
+    ><input
+      class="form-control"
+      type="text"
+      name="operators"
+      [(ngModel)]="assignment.operators"
+      id=""
+    />
   </div>
   <div class="form-group">
-    <label for="">Срок</label><input class="form-control" type="text" name="" id="" />
+    <label for="">Срок</label
+    ><input
+      class="form-control"
+      type="text"
+      name="deadline"
+      [(ngModel)]="assignment.deadline"
+      id=""
+    />
   </div>
   <div class="form-group">
     <label for="">Признак контрольности</label
-    ><input class="form-control" type="text" name="" id="" />
+    ><input
+      class="form-control"
+      type="text"
+      name="controlSign"
+      [(ngModel)]="assignment.controlSign"
+      id=""
+    />
   </div>
   <div class="form-group">
-    <label for="">Признак исполнения</label><input class="form-control" type="text" name="" id="" />
+    <label for="">Признак исполнения</label
+    ><input
+      class="form-control"
+      type="text"
+      name="executeSign"
+      [(ngModel)]="assignment.executeSign"
+      id=""
+    />
   </div>
   <div class="form-group">
-    <label for="">Текст поручения</label><input class="form-control" type="text" name="" id="" />
+    <label for="">Текст поручения</label
+    ><input
+      class="form-control"
+      type="text"
+      name="content"
+      [(ngModel)]="assignment.content"
+      id=""
+    />
   </div>
   <input class="form-control" type="submit" value="Создать поручение" />
 </form>
