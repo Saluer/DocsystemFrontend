@@ -10,8 +10,8 @@ export class SideBarComponent implements OnInit {
 
   ngOnInit() {
     // this.ajaxService.getData("http://localhost:8080/api/assignments");
-    fetch("http://localhost:8080/api/assignments").then((response) =>
-      console.log(response.text())
-    );
+    // fetch("http://localhost:8080/api/assignments").then((response) =>
+    //   console.log(response.text())
+    // );
   }
 }
