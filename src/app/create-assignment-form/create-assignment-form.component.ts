@@ -6,10 +6,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./create-assignment-form.component.scss"],
 })
 //TODO Добавить xhr запросы
-export class CreateAssignmentFormComponent implements OnInit {
+export class CreateAssignmentFormComponent {
   assignment: {
     subject;
-    author;
+    authorId: number;
     operators;
     deadline;
     controlSign;
@@ -19,7 +19,7 @@ export class CreateAssignmentFormComponent implements OnInit {
   constructor() {
     this.assignment = {
       subject: "",
-      author: "",
+      authorId: -1,
       operators: "",
       deadline: "",
       controlSign: "",
@@ -28,10 +28,10 @@ export class CreateAssignmentFormComponent implements OnInit {
     };
   }
 
-  ngOnInit() {}
   onSubmit() {
     let formData = new FormData();
     for (let entry in this.assignment) {
+      console.log(this.assignment[entry]);
       formData.append(entry, this.assignment[entry]);
     }
 
