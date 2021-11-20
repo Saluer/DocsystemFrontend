@@ -7,16 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class CreateAssignmentFormComponent {
   assignment: Assignment;
-  constructor() {
-    this.assignment = {
-      subject: "",
-      authorId: -1,
-      deadline: null,
-      controlSign: false,
-      operateSign: false,
-      content: "",
-    };
-  }
+  constructor() {}
 
   onSubmit() {
     let formData = new FormData();

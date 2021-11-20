@@ -1,6 +1,7 @@
 interface Assignment {
+  id: number;
   subject: string;
-  authorId: number;
+  author: Employee;
   //   operators;
   deadline: string;
   controlSign: boolean;
@@ -11,6 +12,7 @@ interface Assignment {
 type Assignments = Assignment[];
 
 interface Employee {
+  id: number;
   firstname: string;
   patronimic: string;
   surname: string;

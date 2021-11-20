@@ -8,23 +8,14 @@ import { Component, OnInit } from "@angular/core";
 export class UpdateAssignmentFormComponent implements OnInit {
   assignment: Assignment;
   id: number;
-  constructor() {
-    this.assignment = {
-      subject: "",
-      authorId: -1,
-      deadline: null,
-      controlSign: null,
-      operateSign: null,
-      content: "",
-    };
-  }
+  constructor() {}
 
   ngOnInit(): void {
     fetch("http://localhost:8080/api/assignments/2")
       .then((response) => response.json())
       .then((result) => {
         this.assignment = result;
-        this.assignment.authorId = result.author.id;
+        this.assignment.author.id = result.author.id;
         this.assignment.deadline = new Date(result.deadline)
           .toISOString()
           .substring(0, 10);
@@ -33,7 +24,9 @@ export class UpdateAssignmentFormComponent implements OnInit {
   }
 
   onSubmit() {
-    let formData = new FormData(document.forms.namedItem("updateAssignmentForm"));
+    let formData = new FormData(
+      document.forms.namedItem("updateAssignmentForm")
+    );
     for (let entry in this.assignment) {
       formData.append(entry, this.assignment[entry]);
     }

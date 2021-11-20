@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 @Component({
   selector: "app-side-bar",
   templateUrl: "./side-bar.component.html",
@@ -7,22 +7,22 @@ import { Component, OnInit } from "@angular/core";
 })
 export class SideBarComponent implements OnInit {
   organization: Organization;
-  // allDepartments: Departments;
   allEmployees: Employees;
   allAssignments: Assignments;
   assignmentsToMe: Assignments;
   assignmentsFromMe: Assignments;
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+
     fetch("http://localhost:8080/api/organizations/1")
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      this.organization = result;
-      console.log(this.organization);
-    });
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        this.organization = result;
+        console.log(this.organization);
+      });
 
     fetch("http://localhost:8080/api/employees")
       .then((response) => {

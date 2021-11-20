@@ -1,9 +1,10 @@
 <h2>Представления</h2>
 <!-- По возможности убрать проверку -->
+
 <aside class="links" *ngIf="organization">
   <h3>Справочник организации</h3>
-  <a href="/structure" >Структура организации</a>
-  Организация: {{ organization.name }} {{ organization.physAddress }}
+  <p>Структура организации</p>
+  <p>Организация: {{ organization.name }} {{ organization.physAddress }}</p>
   <ul>
     <ul *ngFor="let department of organization.departments">
       Подразделение:
@@ -19,7 +20,7 @@
       </li>
     </ul>
   </ul>
-  <a href="/employees">Список сотрудников</a>
+  <p>Список сотрудников</p>
   <ol>
     <li *ngFor="let employee of allEmployees">
       {{ employee.firstname }}
@@ -27,22 +28,24 @@
   </ol>
 
   <h3>Поручения</h3>
-  <a href="/assignments/all">Все поручения</a>
+  <p>Все поручения</p>
   <ol>
     <li *ngFor="let assignment of allAssignments">
-      {{ assignment.subject }}
+      <a [routerLink]="['/assignments', assignment.id]">{{
+        assignment.subject
+      }}</a>
     </li>
   </ol>
-  <a href="/assignments/from/me">Мои поручения</a>
+  <p>Мои поручения</p>
   <ol>
     <li *ngFor="let assignment of assignmentsFromMe">
-      {{ assignment.subject }}
+      <a>{{ assignment.subject }}</a>
     </li>
   </ol>
-  <a href="/assignments/to/me">Поручения мне</a>
+  <p>Поручения мне</p>
   <ol>
     <li *ngFor="let assignment of assignmentsToMe">
-      {{ assignment.subject }}
+      <a>{{ assignment.subject }}</a>
     </li>
   </ol>
 </aside>
