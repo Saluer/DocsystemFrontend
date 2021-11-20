@@ -1,0 +1,12 @@
+<div clas="row">
+  <a routerLink="/assignments/create" class="col btn btn-block btn-primary"
+    >Создать</a
+  >
+  <a *ngIf="id" routerLink="update" class="col btn btn-block btn-primary"
+    >Редактировать</a
+  >
+  <a *ngIf="id" (click)="deleteHandler()" class="col btn btn-block btn-primary"
+    >Удалить</a
+  >
+  <a routerLink="/assignments/find" class="btn btn-block btn-primary">Найти</a>
+</div>

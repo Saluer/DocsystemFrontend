@@ -14,14 +14,12 @@ export class SideBarComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-
     fetch("http://localhost:8080/api/organizations/1")
       .then((response) => {
         return response.json();
       })
       .then((result) => {
         this.organization = result;
-        console.log(this.organization);
       });
 
     fetch("http://localhost:8080/api/employees")
@@ -30,7 +28,6 @@ export class SideBarComponent implements OnInit {
       })
       .then((result) => {
         this.allEmployees = result;
-        console.log(this.allEmployees);
       });
 
     fetch("http://localhost:8080/api/assignments")
@@ -39,7 +36,6 @@ export class SideBarComponent implements OnInit {
       })
       .then((result) => {
         this.allAssignments = result;
-        console.log(this.allAssignments);
       });
 
     fetch("http://localhost:8080/api/assignments/from/me")
@@ -48,7 +44,6 @@ export class SideBarComponent implements OnInit {
       })
       .then((result) => {
         this.assignmentsFromMe = result;
-        console.log(this.assignmentsFromMe);
       });
 
     fetch("http://localhost:8080/api/assignments/to/me")
@@ -57,7 +52,6 @@ export class SideBarComponent implements OnInit {
       })
       .then((result) => {
         this.assignmentsToMe = result;
-        console.log(this.assignmentsToMe);
       });
   }
 }

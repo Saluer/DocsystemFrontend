@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -7,25 +7,31 @@ import { Subscription } from "rxjs";
   templateUrl: "./document-view.component.html",
   styleUrls: ["./document-view.component.scss"],
 })
+//TODO подумать, нужно ли тут разделение и как справляться с контекстным меню
 export class DocumentViewComponent implements OnInit {
   id: number | undefined;
-  private subscription: Subscription;
-  assignment: Assignment;
+  // private subscription: Subscription;
+  assignments: Assignments;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.subscription = this.route.params.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       this.id = params["id"];
-      fetch("http://localhost:8080/api/assignments/" + this.id)
+      this.assignments = [];
+      let url = "http://localhost:8080/api/assignments/";
+      if (this.id) url = url + this.id;
+      fetch(url)
         .then((response) => {
           return response.json();
         })
         .then((result) => {
-          this.assignment = result;
-          console.log(this.assignment);
+          if (Array.isArray(result)) {
+            this.assignments = result;
+          } else {
+            this.assignments.push(result);
+          }
         });
     });
-    console.log(this.subscription);
   }
 }

@@ -1,66 +1,69 @@
-<form name="updateAssignmentForm" action="" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="">Предмет</label
-      ><input
-        class="form-control"
-        type="text"
-        name="subject"
-        required
-        [(ngModel)]="assignment.subject"
-      />
-    </div>
-    <div class="form-group">
-      <label for="">Автор (id)</label
-      ><input
-        class="form-control"
-        type="text"
-        name="author"
-        required
-        [(ngModel)]="assignment.authorId"
-        id=""
-      />
-    </div>
-    <div class="form-group">
-      <label for="">Срок</label
-      ><input
-        class="form-control"
-        type="date"
-        name="deadline"
-        required
-        [(ngModel)]="assignment.deadline"
-        id=""
-      />
-    </div>
-    <div class="form-group">
-      <label for="">Признак контрольности</label
-      ><input
-        class="form-control"
-        type="checkbox"
-        name="controlSign"
-        [(ngModel)]="assignment.controlSign"
-        id=""
-      />
-    </div>
-    <div class="form-group">
-      <label for="">Признак исполнения</label
-      ><input
-        class="form-control"
-        type="checkbox"
-        name="operateSign"
-        [(ngModel)]="assignment.operateSign"
-        id=""
-      />
-    </div>
-    <div class="form-group">
-      <label for="">Текст поручения</label
-      ><input
-        class="form-control"
-        type="text"
-        name="content"
-        [(ngModel)]="assignment.content"
-        id=""
-      />
-    </div>
-    <input class="form-control btn btn-primary" type="submit" value="Обновить поручение" />
-  </form>
-  
+<form *ngIf="assignment" name="updateAssignmentForm" action="" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="">Предмет</label
+    ><input
+      class="form-control"
+      type="text"
+      name="subject"
+      required
+      [(ngModel)]="assignment.subject"
+    />
+  </div>
+  <div class="form-group">
+    <label for="">Автор (id)</label
+    ><input
+      class="form-control"
+      type="text"
+      name="author"
+      required
+      [(ngModel)]="assignment.author.id"
+      id=""
+    />
+  </div>
+  <div class="form-group">
+    <label for="">Срок</label
+    ><input
+      class="form-control"
+      type="date"
+      name="deadline"
+      required
+      [(ngModel)]="assignment.deadline"
+      id=""
+    />
+  </div>
+  <div class="form-group">
+    <label for="">Признак контрольности</label
+    ><input
+      class="form-control"
+      type="checkbox"
+      name="controlSign"
+      [(ngModel)]="assignment.controlSign"
+      id=""
+    />
+  </div>
+  <div class="form-group">
+    <label for="">Признак исполнения</label
+    ><input
+      class="form-control"
+      type="checkbox"
+      name="operateSign"
+      [(ngModel)]="assignment.operateSign"
+      id=""
+    />
+  </div>
+  <div class="form-group">
+    <label for="">Текст поручения</label
+    ><input
+      class="form-control"
+      type="text"
+      name="content"
+      [(ngModel)]="assignment.content"
+      id=""
+    />
+  </div>
+  <input
+    class="form-control btn btn-primary"
+    type="submit"
+    value="Обновить поручение"
+  />
+</form>

@@ -14,6 +14,7 @@ import { CommonModule } from "@angular/common";
 import { DocumentViewComponent } from "./document-view/document-view.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { EmployeesViewComponent } from './employees-view/employees-view.component';
+import { ContextMenuComponent } from './context-menu/context-menu.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EmployeesViewComponent } from './employees-view/employees-view.componen
     FindAssignmentFormComponent,
     DocumentViewComponent,
     EmployeesViewComponent,
+    ContextMenuComponent,
   ],
   imports: [BrowserModule, FormsModule, CommonModule, AppRoutingModule],
   exports: [RouterModule],

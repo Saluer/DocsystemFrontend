@@ -1,4 +1,9 @@
-<form name="createAssignmentForm" action="" (ngSubmit)="onSubmit()">
+<form
+  *ngIf="assignment"
+  name="createAssignmentForm"
+  action=""
+  (ngSubmit)="onSubmit()"
+>
   <div class="form-group">
     <label for="">Предмет</label
     ><input
@@ -16,7 +21,7 @@
       type="text"
       name="author"
       required
-      [(ngModel)]="assignment.authorId"
+      [(ngModel)]="assignment.author.id"
       id=""
     />
   </div>
@@ -61,5 +66,9 @@
       id=""
     />
   </div>
-  <input class="form-control btn btn-primary" type="submit" value="Создать поручение" />
+  <input
+    class="form-control btn btn-primary"
+    type="submit"
+    value="Создать поручение"
+  />
 </form>

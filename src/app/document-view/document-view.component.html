@@ -1,20 +1,23 @@
-<table class="table table-bordered" *ngIf="assignment">
-  <tr>
-    <th>ID</th>
-    <th>Subject</th>
-    <th>Deadline</th>
-    <th>Control sign</th>
-    <th>Operate sign</th>
-    <th>Content</th>
-    <th>Author ID</th>
-  </tr>
-  <tr>
-    <td>{{ assignment.id }}</td>
-    <td>{{ assignment.subject }}</td>
-    <td>{{ assignment.deadline | date }}</td>
-    <td>{{ assignment.controlSign }}</td>
-    <td>{{ assignment.operateSign }}</td>
-    <td>{{ assignment.content }}</td>
-    <td>{{ assignment.author.id }}</td>
-  </tr>
-</table>
+<div *ngIf="assignments">
+  <app-context-menu></app-context-menu>
+  <table class="table table-bordered" *ngFor="let assignment of assignments">
+    <tr>
+      <th>ID</th>
+      <th>Subject</th>
+      <th>Deadline</th>
+      <th>Control sign</th>
+      <th>Operate sign</th>
+      <th>Content</th>
+      <th>Author ID</th>
+    </tr>
+    <tr>
+      <td>{{ assignment.id }}</td>
+      <td>{{ assignment.subject }}</td>
+      <td>{{ assignment.deadline | date }}</td>
+      <td>{{ assignment.controlSign }}</td>
+      <td>{{ assignment.operateSign }}</td>
+      <td>{{ assignment.content }}</td>
+      <td>{{ assignment.author.id }}</td>
+    </tr>
+  </table>
+</div>
