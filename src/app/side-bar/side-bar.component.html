@@ -1,11 +1,32 @@
 <h2>Представления</h2>
 <aside class="links">
-  <h3>Структура организации</h3>
-  <a href="/employees">Список сотрудников</a>
+  <h3>Справочник организации организации</h3>
   <a href="/structure">Структура организации</a>
-  <h3>Работа с поручениями</h3>
-  <a href="/create">Создать поручение</a>
-  <a href="/update">Обновить поручение</a>
-  <a href="/delete">Удалить поручение</a>
-  <a href="/find">Найти поручение</a>
+
+  <a href="/employees">Список сотрудников</a>
+  <ol>
+    <li *ngFor="let employee of allEmployees">
+      {{ employee.firstname }}
+    </li>
+  </ol>
+
+  <h3>Поручения</h3>
+  <a href="/assignments/all">Все поручения</a>
+  <ol>
+    <li *ngFor="let assignment of allAssignments">
+      {{ assignment.subject }}
+    </li>
+  </ol>
+  <a href="/assignments/from/me">Мои поручения</a>
+  <ol>
+    <li *ngFor="let assignment of assignmentsFromMe">
+      {{ assignment.subject }}
+    </li>
+  </ol>
+  <a href="/assignments/to/me">Поручения мне</a>
+  <ol>
+    <li *ngFor="let assignment of assignmentsToMe">
+      {{ assignment.subject }}
+    </li>
+  </ol>
 </aside>

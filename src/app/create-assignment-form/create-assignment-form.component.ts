@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./create-assignment-form.component.scss"],
 })
 export class CreateAssignmentFormComponent {
-  assignment: assignment;
+  assignment: Assignment;
   constructor() {
     this.assignment = {
       subject: "",

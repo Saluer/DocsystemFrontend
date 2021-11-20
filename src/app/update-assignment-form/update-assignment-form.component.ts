@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./update-assignment-form.component.scss"],
 })
 export class UpdateAssignmentFormComponent implements OnInit {
-  assignment: assignment;
+  assignment: Assignment;
   id: number;
   constructor() {
     this.assignment = {
