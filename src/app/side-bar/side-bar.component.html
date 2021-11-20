@@ -1,8 +1,24 @@
 <h2>Представления</h2>
-<aside class="links">
-  <h3>Справочник организации организации</h3>
-  <a href="/structure">Структура организации</a>
-
+<!-- По возможности убрать проверку -->
+<aside class="links" *ngIf="organization">
+  <h3>Справочник организации</h3>
+  <a href="/structure" >Структура организации</a>
+  Организация: {{ organization.name }} {{ organization.physAddress }}
+  <ul>
+    <ul *ngFor="let department of organization.departments">
+      Подразделение:
+      {{
+        department.name
+      }}
+      {{
+        department.contactInfo
+      }}
+      Сотрудники подзраделения:
+      <li *ngFor="let employee of department.employees">
+        Имя: {{ employee.firstname }}, фамилия: {{ employee.surname }}
+      </li>
+    </ul>
+  </ul>
   <a href="/employees">Список сотрудников</a>
   <ol>
     <li *ngFor="let employee of allEmployees">

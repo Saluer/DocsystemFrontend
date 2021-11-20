@@ -6,6 +6,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./side-bar.component.scss"],
 })
 export class SideBarComponent implements OnInit {
+  organization: Organization;
+  // allDepartments: Departments;
   allEmployees: Employees;
   allAssignments: Assignments;
   assignmentsToMe: Assignments;
@@ -13,6 +15,15 @@ export class SideBarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    fetch("http://localhost:8080/api/organizations/1")
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      this.organization = result;
+      console.log(this.organization);
+    });
+
     fetch("http://localhost:8080/api/employees")
       .then((response) => {
         return response.json();

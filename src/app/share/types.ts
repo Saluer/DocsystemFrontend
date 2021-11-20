@@ -18,3 +18,18 @@ interface Employee {
 }
 
 type Employees = Employee[];
+
+interface Department {
+  name: string;
+  contactInfo: string;
+  employees: Employees;
+}
+
+type Departments = Department[];
+
+interface Organization {
+  name: string;
+  physAddress: string;
+  jureAddress: string;
+  departments: Departments;
+}
