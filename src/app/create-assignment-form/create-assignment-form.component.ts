@@ -5,25 +5,15 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./create-assignment-form.component.html",
   styleUrls: ["./create-assignment-form.component.scss"],
 })
-//TODO Добавить xhr запросы
 export class CreateAssignmentFormComponent {
-  assignment: {
-    subject;
-    authorId: number;
-    operators;
-    deadline;
-    controlSign;
-    executeSign;
-    content;
-  };
+  assignment: assignment;
   constructor() {
     this.assignment = {
       subject: "",
       authorId: -1,
-      operators: "",
-      deadline: "",
-      controlSign: "",
-      executeSign: "",
+      deadline: null,
+      controlSign: false,
+      operateSign: false,
       content: "",
     };
   }
