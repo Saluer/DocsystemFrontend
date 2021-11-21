@@ -14,7 +14,7 @@ type Assignments = Assignment[];
 interface Employee {
   id: number;
   firstname: string;
-  patronimic: string;
+  patronymic: string;
   surname: string;
   position: string;
 }

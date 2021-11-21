@@ -1,12 +1,13 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { CreateAssignmentFormComponent } from "./create-assignment-form/create-assignment-form.component";
-import { DocumentViewComponent } from "./document-view/document-view.component";
-import { EmployeesViewComponent } from "./employees-view/employees-view.component";
-import { UpdateAssignmentFormComponent } from "./update-assignment-form/update-assignment-form.component";
+import { CreateAssignmentFormComponent } from "./assignments/create-assignment-form/create-assignment-form.component";
+import { DocumentViewComponent } from "./assignments/document-view/document-view.component";
+import { EmployeesViewComponent } from "./employees/employees-view/employees-view.component";
+import { UpdateAssignmentFormComponent } from "./assignments/update-assignment-form/update-assignment-form.component";
 
 const routes: Routes = [
   { path: "employees", component: EmployeesViewComponent },
+  { path: "employees/:id", component: EmployeesViewComponent },
   {
     path: "assignments/:id/update",
     component: UpdateAssignmentFormComponent,

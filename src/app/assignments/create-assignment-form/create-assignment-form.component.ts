@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ASSIGNMENTS_API_URL, CREATE_URL_ADDITION } from "src/app/share/constants";
 
 @Component({
   selector: "app-create-assignment-form",
@@ -17,7 +18,7 @@ export class CreateAssignmentFormComponent implements OnInit {
         id: -1,
         firstname: "",
         surname: "",
-        patronimic: "",
+        patronymic: "",
         position: "",
       },
       deadline: "",
@@ -35,7 +36,7 @@ export class CreateAssignmentFormComponent implements OnInit {
     }
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/api/assignments/create");
+    xhr.open("POST", ASSIGNMENTS_API_URL + CREATE_URL_ADDITION);
     xhr.send(formData);
 
     xhr.onload = () => alert(xhr.response);

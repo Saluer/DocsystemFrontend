@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Subscription } from "rxjs";
+import { ASSIGNMENTS_API_URL } from "src/app/share/constants";
 
 @Component({
   selector: "app-document-view",
@@ -10,7 +10,6 @@ import { Subscription } from "rxjs";
 //TODO подумать, нужно ли тут разделение и как справляться с контекстным меню
 export class DocumentViewComponent implements OnInit {
   id: number | undefined;
-  // private subscription: Subscription;
   assignments: Assignments;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
@@ -19,7 +18,8 @@ export class DocumentViewComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.id = params["id"];
       this.assignments = [];
-      let url = "http://localhost:8080/api/assignments/";
+      let url = ASSIGNMENTS_API_URL;
+
       if (this.id) url = url + this.id;
       fetch(url)
         .then((response) => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { ASSIGNMENTS_API_URL, UPDATE_URL_ADDITION } from "src/app/share/constants";
 
 @Component({
   selector: "app-update-assignment-form",
@@ -14,9 +15,9 @@ export class UpdateAssignmentFormComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.id = params["id"];
-      console.log(params)
+      console.log(params);
     });
-    fetch("http://localhost:8080/api/assignments/" + this.id)
+    fetch(ASSIGNMENTS_API_URL + this.id)
       .then((response) => response.json())
       .then((result) => {
         this.assignment = result;
@@ -34,7 +35,7 @@ export class UpdateAssignmentFormComponent implements OnInit {
     }
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/api/assignments/update/" + this.id);
+    xhr.open("POST", ASSIGNMENTS_API_URL + UPDATE_URL_ADDITION + this.id);
     xhr.send(formData);
 
     xhr.onload = () => alert(xhr.response);
