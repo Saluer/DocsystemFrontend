@@ -3,6 +3,7 @@
   name="createAssignmentForm"
   action=""
   (ngSubmit)="onSubmit()"
+  ngNativeValidate
 >
   <div class="form-group">
     <label for="">Предмет</label
@@ -11,6 +12,7 @@
       type="text"
       name="subject"
       required
+      minlength="4"
       [(ngModel)]="assignment.subject"
     />
   </div>
@@ -20,6 +22,7 @@
       class="form-control"
       type="text"
       name="author"
+      min="1"
       required
       [(ngModel)]="assignment.author.id"
       id=""
@@ -62,6 +65,7 @@
       class="form-control"
       type="text"
       name="content"
+      required
       [(ngModel)]="assignment.content"
       id=""
     />

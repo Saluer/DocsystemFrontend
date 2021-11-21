@@ -1,4 +1,10 @@
-<form *ngIf="assignment" name="updateAssignmentForm" action="" (ngSubmit)="onSubmit()">
+<form
+  *ngIf="assignment"
+  name="updateAssignmentForm"
+  action=""
+  (ngSubmit)="onSubmit()"
+  ngNativeValidate
+>
   <div class="form-group">
     <label for="">Предмет</label
     ><input
@@ -6,6 +12,7 @@
       type="text"
       name="subject"
       required
+      minlength="4"
       [(ngModel)]="assignment.subject"
     />
   </div>
@@ -17,7 +24,6 @@
       name="author"
       required
       [(ngModel)]="assignment.author.id"
-      id=""
     />
   </div>
   <div class="form-group">
@@ -28,7 +34,6 @@
       name="deadline"
       required
       [(ngModel)]="assignment.deadline"
-      id=""
     />
   </div>
   <div class="form-group">
@@ -38,7 +43,6 @@
       type="checkbox"
       name="controlSign"
       [(ngModel)]="assignment.controlSign"
-      id=""
     />
   </div>
   <div class="form-group">
@@ -48,7 +52,6 @@
       type="checkbox"
       name="operateSign"
       [(ngModel)]="assignment.operateSign"
-      id=""
     />
   </div>
   <div class="form-group">
@@ -57,8 +60,8 @@
       class="form-control"
       type="text"
       name="content"
+      required
       [(ngModel)]="assignment.content"
-      id=""
     />
   </div>
   <input

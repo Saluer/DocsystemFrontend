@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { ASSIGNMENTS_API_URL, CREATE_URL_ADDITION } from "src/app/share/constants";
+import { Router } from "@angular/router";
+import {
+  ASSIGNMENTS_API_URL,
+  CREATE_URL_ADDITION,
+} from "src/app/share/constants";
 
 @Component({
   selector: "app-create-assignment-form",
@@ -8,25 +12,25 @@ import { ASSIGNMENTS_API_URL, CREATE_URL_ADDITION } from "src/app/share/constant
 })
 export class CreateAssignmentFormComponent implements OnInit {
   assignment: Assignment;
-  constructor() {}
+  constructor(private router: Router) {}
   ngOnInit(): void {
     //? Нужно что-то с этим делать
     this.assignment = {
       id: -1,
       subject: "",
       author: {
-        id: -1,
         firstname: "",
         surname: "",
         patronymic: "",
         position: "",
       },
       deadline: "",
-      controlSign: null,
-      operateSign: null,
+      controlSign: false,
+      operateSign: false,
     };
   }
 
+//! Чтобы обновился список представлений после добавления нового, нужно перезагрузить страницу
   onSubmit() {
     let formData = new FormData();
     for (let entry in this.assignment) {
@@ -39,6 +43,7 @@ export class CreateAssignmentFormComponent implements OnInit {
     xhr.open("POST", ASSIGNMENTS_API_URL + CREATE_URL_ADDITION);
     xhr.send(formData);
 
-    xhr.onload = () => alert(xhr.response);
+    xhr.onload = () => alert("Результат создания документа: " + xhr.response);
+    this.router.navigate(["assignments"]);
   }
 }

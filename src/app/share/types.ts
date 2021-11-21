@@ -12,7 +12,7 @@ interface Assignment {
 type Assignments = Assignment[];
 
 interface Employee {
-  id: number;
+  id?: number;
   firstname: string;
   patronymic: string;
   surname: string;
