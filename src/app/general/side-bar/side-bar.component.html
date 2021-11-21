@@ -5,7 +5,8 @@
   <h3>Справочник организации</h3>
   <h4>Структура организации</h4>
   <p>
-    <b>Организация: </b>{{ organization.name }} {{ organization.physAddress }}
+    <b>Организация: </b>{{ organization.name }} <b>по физ. адресу</b>
+    {{ organization.physAddress }}
   </p>
   <ol>
     <li *ngFor="let department of organization.departments">
@@ -15,7 +16,7 @@
         >{{
           department.name
         }}
-        <b>Контакты:</b
+        <b>Контакты: </b
         >{{
           department.contactInfo
         }}
@@ -30,7 +31,7 @@
   <a routerLink="/employees"><p>Список сотрудников</p></a>
   <ol>
     <li *ngFor="let employee of allEmployees">
-      <a [routerLink]="['/employees', employee.id]">{{ employee.firstname }}</a>
+      <a [routerLink]="['/employees', employee.id]">{{ employee.id }}</a>
     </li>
   </ol>
 
@@ -41,13 +42,13 @@
       <a [routerLink]="['/assignments', assignment.id]">{{ assignment.id }}</a>
     </li>
   </ol>
-  <a routerLink="/assignments/to/me"><p>Мои поручения</p></a>
+  <p>Мои поручения</p>
   <ol>
     <li *ngFor="let assignment of assignmentsFromMe">
       <a [routerLink]="['/assignments', assignment.id]">{{ assignment.id }}</a>
     </li>
   </ol>
-  <a routerLink="/assignments/from/me"><p>Поручения мне</p></a>
+  <p>Поручения мне</p>
   <ol>
     <li *ngFor="let assignment of assignmentsToMe">
       <a [routerLink]="['/assignments', assignment.id]">{{ assignment.id }}</a>

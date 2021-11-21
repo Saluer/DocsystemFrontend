@@ -7,7 +7,7 @@ import { ASSIGNMENTS_API_URL } from "src/app/share/constants";
   templateUrl: "./document-view.component.html",
   styleUrls: ["./document-view.component.scss"],
 })
-//TODO подумать, нужно ли тут разделение и как справляться с контекстным меню
+
 export class DocumentViewComponent implements OnInit {
   id: number | undefined;
   assignments: Assignments;
